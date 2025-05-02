@@ -140,7 +140,7 @@ function About(props) {
             as="a"
             download
             role="button"
-            href="https://docs.google.com/document/d/19lnmad43-oLgP8UrADQt_p3l0cQz7gpDQGiIQjxGg38/edit?usp=sharing"
+            href="/public/static/Resume.pdf"
             target="_blank"
             style={btnStyle}
             onClick={downloadResume}
