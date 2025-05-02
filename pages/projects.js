@@ -40,7 +40,10 @@ function ProjectItem({ project, pIndex }) {
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['GRE Prep Tool', 'Stocker', 'Musing', 'Instant MD']
+    const featured = [
+      'Fraud Detection Using Kafka Streams',
+      'ETL Pipeline with dbt, Snowflake & Airflow'
+    ]
 
     return items
       .map(item => {
