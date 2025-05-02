@@ -1,5 +1,3 @@
-// If your existing tweet IDs aren't working, try these example IDs
-// or replace with your own valid tweet IDs
 const tweets = [
   '1916729555877822878',
   '1910406163922927771',
