@@ -42,7 +42,7 @@ function Projects(props) {
   const renderFeatured = () => {
     const featured = [
       'Fraud Detection Using Kafka Streams',
-      'ETL Pipeline with dbt, Snowflake & Airflow'
+      'ETL Pipeline with dbt, Snowflake & Airflow', 'Hypothesis Testing in Soccer Matches'
     ]
 
     return items
