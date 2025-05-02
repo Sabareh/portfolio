@@ -138,10 +138,9 @@ function About(props) {
           <span style={{ margin: '0 20px 0 10px' }}>•</span>
           <ButtonPrimary
             as="a"
-            download
-            role="button"
-            href="/public/static/Resume.pdf"
+            href="/static/Resume.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             style={btnStyle}
             onClick={downloadResume}
             onMouseEnter={() => downloadRef.current?.play()}
