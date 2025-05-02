@@ -1,22 +1,23 @@
 export const featuredProjects = [
   {
-    title: 'Project One',
-    description: 'A brief description of your first featured project.',
-    icon: 'project1', // corresponds to /public/static/icons/project1.json
-    url: 'https://project-one-url.com',
-    stats: '10K+ Users'
+    title: 'Fraud Detection Using Kafka Streams',
+    description: 'Real-time fraud detection pipeline using Apache Kafka and EMR',
+    icon: 'kafka-streams',
+    url: 'https://github.com/Sabareh/fraud-detection',
+    stats: 'Java · Apache Kafka · EMR · Spark Streaming'
   },
   {
-    title: 'Project Two',
-    description: 'Description of another impressive project you worked on.',
-    icon: 'project2',
-    url: 'https://project-two-url.com',
-    stats: '5K+ Stars on GitHub'
+    title: 'ETL Pipeline with dbt, Snowflake & Airflow',
+    description: 'End-to-end data pipeline using dbt, Snowflake, and Apache Airflow',
+    icon: 'etl-pipeline',
+    url: 'https://github.com/Sabareh/etl-pipeline',
+    stats: 'dbt · Snowflake · Airflow · Astronomer · Python'
   },
   {
-    title: 'Project Three',
-    description: 'A third amazing project with impressive features.',
-    icon: 'project3',
-    url: 'https://project-three-url.com'
+    title: 'Stock Prediction with Spark & Cassandra',
+    description: 'Predicting stock prices using Spark and Cassandra with ML models',
+    icon: 'stock-predictor',
+    url: 'https://github.com/Sabareh/stock-predictor',
+    stats: 'Apache Spark · Cassandra · Alpha Vantage API · ML'
   }
 ];

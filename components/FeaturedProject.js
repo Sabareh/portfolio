@@ -7,9 +7,31 @@ const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 export default function FeaturedProject(props) {
   const { project } = props
-
-  const icon = require(`../public/static/icons/${project.icon}.json`)
   const iconRef = useRef()
+  const [iconData, setIconData] = useState(null)
+  
+  // Safely load icon data
+  const loadIconData = () => {
+    try {
+      // Use dynamic import instead of require
+      import(`../public/static/icons/${project.icon}.json`)
+        .then(module => {
+          setIconData(module.default)
+        })
+        .catch(err => {
+          console.warn(`Icon not found: ${project.icon}.json`)
+        })
+    } catch (error) {
+      console.warn(`Could not load icon: ${project.icon}.json`)
+    }
+  }
+
+  // Load icon data when component mounts
+  useState(() => {
+    if (typeof window !== 'undefined') {
+      loadIconData()
+    }
+  }, [])
 
   return (
     <Project
@@ -19,13 +41,18 @@ export default function FeaturedProject(props) {
       onMouseLeave={() => iconRef.current?.stop()}
     >
       <Animation index={props.index}>
-        <Lottie
-          lottieRef={iconRef}
-          style={{ width: 24, height: 24, marginBottom: 10 }}
-          animationData={icon}
-          loop={false}
-          autoplay={false}
-        />
+        {iconData && (
+          <Lottie
+            lottieRef={iconRef}
+            style={{ width: 24, height: 24, marginBottom: 10 }}
+            animationData={iconData}
+            loop={false}
+            autoplay={false}
+          />
+        )}
+        {!iconData && (
+          <IconPlaceholder />
+        )}
         <Body>
           <Title>{project.title}</Title>
           <Description>{project.description}</Description>
@@ -35,6 +62,14 @@ export default function FeaturedProject(props) {
     </Project>
   )
 }
+
+const IconPlaceholder = styled('div', {
+  width: 24,
+  height: 24,
+  marginBottom: 10,
+  backgroundColor: '$hover',
+  borderRadius: '50%'
+})
 
 function Animation(props) {
   const [hovered, setHovered] = useState('')
