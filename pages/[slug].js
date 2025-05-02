@@ -11,11 +11,16 @@ function Post(props) {
 
   const title = `${props.title} // Victor Sabare`
   const description = props.description || ''
-  const url = `https://sabare.tech/${props.slug}`
+  const url = `${props.baseUrl}/${props.slug}`
   const date = new Date(props.date).toISOString()
-  const image = props.image
-    ? `https://sabare.tech${props.image}`
-    : 'https://sabare.tech/static/images/home-opt.jpg'
+  
+  // Format image URL properly
+  const formatImageUrl = (imagePath) => {
+    if (!imagePath) return `${props.baseUrl}/static/images/home-opt.jpg`;
+    return imagePath.startsWith('http') ? imagePath : `${props.baseUrl}${imagePath.startsWith('/') ? '' : '/'}${imagePath}`;
+  };
+  
+  const image = formatImageUrl(props.image);
 
   return (
     <>
@@ -37,9 +42,9 @@ function Post(props) {
 
       <ArticleJsonLd
         authorName="Victor Sabare"
-        publisherLogo="https://sabare.tech/static/images/home-opt.jpg"
+        publisherLogo={`${props.baseUrl}/static/images/home-opt.jpg`}
         publisherName="Victor Sabare"
-        publisherUrl="https://sabare.tech"
+        publisherUrl={props.baseUrl}
         type="Blog"
         url={url}
         title={title}
@@ -70,7 +75,7 @@ export async function getStaticProps({ params }) {
     const content = await convertMarkdownToHtml(post.content || '')
 
     const isProd = process.env.NODE_ENV === 'production'
-    const base = isProd
+    const baseUrl = isProd
       ? 'https://www.sabare.tech'
       : 'http://localhost:3000'
 
@@ -78,6 +83,7 @@ export async function getStaticProps({ params }) {
       props: {
         ...post,
         content,
+        baseUrl,
       },
       revalidate: 60,
     }
