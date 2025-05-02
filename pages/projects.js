@@ -9,7 +9,7 @@ import stripHtml from '../lib/strip-html'
 
 export async function getStaticProps() {
   const meta = {
-    title: 'Projects // Parth Desai',
+    title: 'Projects // Victor Sabare',
     tagline: 'Work. Hobby. Open Source.',
     image: '/static/images/projects-bw.jpg',
     primaryColor: 'cyan',
@@ -40,7 +40,7 @@ function ProjectItem({ project, pIndex }) {
 
 function Projects(props) {
   const renderFeatured = () => {
-    const featured = ['GRE Prep Tool', 'Daily Word Pro', 'Musing', 'Instant MD']
+    const featured = ['Fraud Detection Using Kafka Streams', 'ETL Pipeline with dbt, Snowflake & Airflow', 'Stock Prediction with Spark & Cassandra']
 
     return items
       .map(item => {
