@@ -26,6 +26,9 @@ function Post(props) {
         <meta content={description} property="og:description" />
         <meta content={url} property="og:url" />
         <meta content={image} property="og:image" />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={image} />
 
         {props.canonical_url && (
           <link rel="canonical" href={props.canonical_url} />
