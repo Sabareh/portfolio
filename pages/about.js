@@ -191,6 +191,32 @@ function About(props) {
       <h2>Bio</h2>
       {renderBio()}
 
+      {/* Education */}
+      <Section>
+        <h2>Education</h2>
+        <strong>Jomo Kenyatta University of Agriculture and Technology</strong>, Karen, Kenya
+        <ul>
+          <li>BS in Data Science and Analytics</li>
+          <li>Relevant Coursework: Machine Learning I & II, Probability & Statistics</li>
+          <li>Activities: Microsoft Learn Student Ambassador, Kenya Model United Nations</li>
+        </ul>
+        <strong>Alliance High School</strong>, Kikuyu, Kenya
+        <ul>
+          <li>Activities & Societies: MIT Launch X Club, Junior Economic Club, Chess Club, World Scholars Club</li>
+        </ul>
+      </Section>
+
+      {/* Certifications */}
+      <Section>
+        <h2>Certifications</h2>
+        <ul>
+          <li>Associate Big Data Engineer (ABDE™) – Data Science Council of America</li>
+          <li>Data Engineer Associate – DataCamp</li>
+          <li>Data Scientist Associate – DataCamp</li>
+          <li>Data Analyst Associate – DataCamp</li>
+        </ul>
+      </Section>
+
       <Toast
         title={toastTitle}
         description={toastDescription}
