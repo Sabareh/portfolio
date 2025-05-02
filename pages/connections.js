@@ -1,4 +1,3 @@
-import { Client } from '@notionhq/client'
 import { AnimateSharedLayout, motion } from 'framer-motion'
 import Head from 'next/head'
 import React, { useState } from 'react'
@@ -7,44 +6,7 @@ import ConnectionModal from '../components/connections/ConnectionModal'
 import Base from '../layouts/Base'
 import stripHtml from '../lib/strip-html'
 import { styled } from '../stitches.config'
-
-export async function getConnections() {
-  const token = process.env.NOTION_API_KEY
-  const databaseId = process.env.NOTION_DATABASE_ID
-
-  if (!token || !databaseId) {
-    console.warn('Missing Notion API credentials.')
-    return []
-  }
-
-  const notion = new Client({ auth: token })
-
-  try {
-    const response = await notion.databases.query({ database_id: databaseId })
-    return response.results.map(page => {
-      const props = page.properties
-
-      return {
-        name: props.Name?.title?.[0]?.plain_text?.trim() || 'Unknown',
-        company: props.Company?.select?.name?.trim() || 'Unknown',
-        title: props.Title?.select?.name?.trim() || 'Unknown',
-        location: props.Location?.select?.name?.trim() || 'Unknown',
-        status: props.Status?.select?.name?.trim() || 'Unknown',
-        tags: Array.isArray(props.Tags?.multi_select)
-          ? props.Tags.multi_select.map(tag => tag.name)
-          : [],
-        metOn: props['Met On']?.date?.start || null,
-        linkedin: props['LinkedIn']?.url || null,
-        twitter: props.Twitter?.url || null,
-        notes: props.Notes?.rich_text?.[0]?.plain_text?.trim() || null,
-        url: page.url || null,
-      }
-    })
-  } catch (error) {
-    console.error('Error fetching Notion connections:', error)
-    return []
-  }
-}
+import connections from '../data/connections'  // ← import static data
 
 export function getMeta() {
   return {
@@ -59,13 +21,6 @@ export function getMeta() {
 }
 
 export async function getStaticProps() {
-  let connections = []
-  try {
-    connections = await getConnections()
-  } catch (error) {
-    console.error('getStaticProps error:', error)
-  }
-
   const meta = getMeta()
   return {
     props: {
@@ -74,20 +29,13 @@ export async function getStaticProps() {
       image: meta.image,
       primaryColor: meta.primaryColor,
       secondaryColor: meta.secondaryColor,
-      connections,
+      connections,             // ← use static array
     },
     revalidate: 60 * 60,
   }
 }
 
-function Connections({
-  title,
-  tagline,
-  image,
-  primaryColor,
-  secondaryColor,
-  connections,
-}) {
+function Connections({ title, tagline, image, primaryColor, secondaryColor, connections }) {
   const [selectedPerson, setSelectedPerson] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -109,7 +57,7 @@ function Connections({
     setSelectedPerson(null)
   }
 
-  const description = `A curated list of <strong>interesting people</strong> I’ve met or hope to meet. If you’d like to connect or collaborate, feel free to <a href="/contact">reach out to me</a>. This page is powered by an ever-evolving <a href="https://desaiparth.notion.site/1e1166c4dbed80f5871ec01ee6b182a0?v=1e1166c4dbed80e68890000c5c1875e6&pvs=4" target="_blank" rel="noopener noreferrer">Notion database</a>.`
+  const description = `A curated list of <strong>interesting people</strong> I’ve met or hope to meet, loaded from a static data file. Feel free to reach out anytime.`
 
   return (
     <>

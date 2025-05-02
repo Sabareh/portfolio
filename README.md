@@ -28,7 +28,7 @@
 * **SEO Optimized:** Open Graph, Twitter Cards, and JSON-LD structured data.
 * **Dark Mode:** Accessible and visually balanced themes.
 * **Deployed on Vercel:** Fast and scalable deployment.
-* **Notion-Powered Connections:** Dynamic list of professional connections powered by Notion.
+* **Connections Data:** Static list loaded from the data folder.
 * **Command Bar:** Keyboard-based navigation for power users.
 * **Mobile-First Experience:** Optimized navigation and layout for mobile devices.
 
