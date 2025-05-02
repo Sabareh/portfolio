@@ -1,5 +1,5 @@
 import { styled } from '../stitches.config'
-import Layout from '../components/Layout'
+import Layout from '../layouts/Base'
 import FeaturedProject from '../components/FeaturedProject'
 import { featuredProjects } from '../data/featuredProjects'
 
