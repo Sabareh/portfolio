@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { TailSpin } from 'react-loader-spinner'
 import TweetEmbed from 'react-tweet-embed'
 import tweets from '../data/tweets'
@@ -20,20 +20,56 @@ export async function getStaticProps() {
 
 function TweetsPage(props) {
   const { title, description, image } = props
-  const [loading, setLoading] = useState(true)
+  const [loadingTweets, setLoadingTweets] = useState({})
+  const [allLoaded, setAllLoaded] = useState(false)
 
-  const handleTweetLoad = () => {
-    setLoading(false)
+  useEffect(() => {
+    // Initialize loading state for each tweet
+    const initialLoadingState = tweets.reduce((acc, tweetId) => {
+      acc[tweetId] = true;
+      return acc;
+    }, {});
+    setLoadingTweets(initialLoadingState);
+  }, []);
+
+  useEffect(() => {
+    // Check if all tweets are loaded
+    if (Object.keys(loadingTweets).length > 0) {
+      const stillLoading = Object.values(loadingTweets).some(loading => loading);
+      setAllLoaded(!stillLoading);
+    }
+  }, [loadingTweets]);
+
+  const handleTweetLoad = (tweetId) => {
+    setLoadingTweets(prev => ({
+      ...prev,
+      [tweetId]: false
+    }));
+  }
+
+  const handleTweetFail = (tweetId) => {
+    console.error(`Failed to load tweet: ${tweetId}`);
+    setLoadingTweets(prev => ({
+      ...prev,
+      [tweetId]: false
+    }));
   }
 
   const renderTweets = () => {
-    return tweets.map((tweetId, index) => (
-      <TweetEmbed
-        key={index}
-        tweetId={tweetId}
-        options={{ theme: 'dark' }}
-        onTweetLoadSuccess={handleTweetLoad}
-      />
+    return tweets.map((tweetId) => (
+      <div key={tweetId} style={{ marginBottom: '20px' }}>
+        <TweetEmbed
+          id={tweetId}
+          tweetId={tweetId}
+          options={{ 
+            theme: 'dark',
+            align: 'center',
+            cards: 'hidden'
+          }}
+          onLoad={() => handleTweetLoad(tweetId)}
+          onError={() => handleTweetFail(tweetId)}
+        />
+      </div>
     ))
   }
 
@@ -48,37 +84,18 @@ function TweetsPage(props) {
         <meta content={`https://sabare.tech${image}`} property="og:image" />
       </Head>
 
-      {/* {loading && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-          }}
-        >
-          <TailSpin
-            visible={true}
-            height="80"
-            width="80"
-            color="#5D3FD3"
-            ariaLabel="tail-spin-loading"
-            radius="1"
-          />
-        </div>
-      )} */}
-
       <p>{description}</p>
 
       <h2>My Tweets</h2>
-      <div style={{ position: 'relative' }}>
-        {loading && (
+      <div style={{ position: 'relative', minHeight: '200px' }}>
+        {!allLoaded && Object.keys(loadingTweets).length > 0 && (
           <div
             style={{
               position: 'absolute',
               top: '100px',
               left: '50%',
               transform: 'translateX(-50%)',
+              zIndex: 10,
             }}
           >
             <TailSpin
@@ -92,8 +109,11 @@ function TweetsPage(props) {
           </div>
         )}
 
-        <div>{renderTweets()}</div>
+        <div style={{ opacity: allLoaded ? 1 : 0.3, transition: 'opacity 0.3s' }}>
+          {renderTweets()}
+        </div>
       </div>
+
       <h2>Let's chat</h2>
       <p>
         <a href="https://sabare.tech/contact" target="_blank">
