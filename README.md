@@ -1,8 +1,4 @@
-# portfolio
-Here’s a customized version of your `README.md` to reflect **your personal website – sabare.tech**, branded for **Victor Sabare**, while preserving the original structure and professionalism:
-
----
-
+------
 # Victor Sabare's Portfolio
 
 [![Website](https://img.shields.io/website?url=https%3A%2F%2Fsabare.tech)](https://sabare.tech)
