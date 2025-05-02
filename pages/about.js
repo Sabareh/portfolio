@@ -59,8 +59,7 @@ function About(props) {
               '@bp2': { marginTop: '-6px' },
             }}
           >
-            <strong>Hey, I'm Victor Sabare</strong>
-            <Pronunciation />I once bricked an iPod at 13 while jailbreaking
+            <strong>Hey, I'm Victor Sabare</strong> I once bricked an iPod at 13 while jailbreaking
             it—igniting my lifelong obsession with tech. Now, I transform raw
             data into meaningful impact.
           </Paragraph>

@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "parthdesai.site",
-  "version": "5.0.0",
+  "name": "sabare.tech",
+  "version": "3.0.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
