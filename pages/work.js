@@ -111,7 +111,7 @@ function AwardItem(props) {
         </a>
       </h3>
       <ul>
-        <li>When: {format(parseISO(item.date), 'LLLL, d')}</li>
+        <li>When: {item.date}</li>
         <li>By: {item.by}</li>
         <li>Summary: {item.summary}</li>
       </ul>
