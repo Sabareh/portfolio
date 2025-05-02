@@ -1,22 +1,64 @@
 const items = [
   {
+    year: '2025',
+    projects: [
+      {
+        title: 'Fraud Detection Using Kafka Streams',
+        description: 'Real-time fraud detection pipeline using Apache Kafka and EMR',
+        url: '', // Add if there's a link
+        active: true,
+        icon: 'kafka-streams',
+        stats: 'Java · EMR · Apache Kafka',
+      },
+      {
+        title: 'ETL Pipeline with dbt, Snowflake & Airflow',
+        description: 'End-to-end data pipeline using dbt, Snowflake, and Apache Airflow',
+        url: '', // Add if there's a link
+        active: true,
+        icon: 'etl-pipeline',
+        stats: 'dbt · Snowflake · Airflow · Astronomer',
+      },
+    ],
+  },
+  {
+    year: '2024',
+    projects: [
+      {
+        title: 'Hypothesis Testing in Soccer Matches',
+        description: 'Statistical test comparing goals in men\'s and women\'s soccer matches',
+        url: '', // Add if there's a link
+        active: false,
+        icon: 'hypothesis-testing',
+        stats: 'Significance level: 10%',
+      },
+      {
+        title: 'Stock Prediction with Spark & Cassandra',
+        description: 'Predicting stock prices using Spark and Cassandra with ML models',
+        url: '', // Add if there's a link
+        active: false,
+        icon: 'stock-predictor',
+        stats: 'Apache Spark · Cassandra · Alpha Vantage',
+      },
+      {
+        title: 'Forex Data Pipeline',
+        description: 'Currency rates ETL pipeline with PySpark, HDFS, and Hive',
+        url: '', // Add if there's a link
+        active: false,
+        icon: 'forex-pipeline',
+        stats: 'Hive · HDFS · PySpark',
+      },
+    ],
+  },
+  {
     year: '2023',
     projects: [
       {
-        title: 'Musing',
-        description: 'My personal blog made with Tailwind CSS and NextJS',
-        url: 'https://musing.vercel.app/',
+        title: 'Android App Market Analysis',
+        description: 'Analyzed 10,000+ apps from Google Play for business insights',
+        url: '', // Add if there's a link
         active: false,
-        icon: 'musing',
-        stats: '300+ stars',
-      },
-      {
-        title: 'GRE Prep Tool',
-        description: 'A powerful tool to prepare for GRE using CLI',
-        url: 'https://github.com/pycoder2000/GRE-Prep-Tool',
-        active: true,
-        icon: 'gre-prep',
-        stats: '7 vocab lists',
+        icon: 'android-market',
+        stats: 'DataCamp · EDA',
       },
     ],
   },
@@ -24,68 +66,39 @@ const items = [
     year: '2022',
     projects: [
       {
-        title: 'Stocker',
-        description: 'Stock portfolio system built with Django',
-        url: 'https://github.com/pycoder2000/Stock-Management',
+        title: 'GitHub History of Scala',
+        description: 'Explored contributions and evolution of Scala via Git logs',
+        url: '', // Add if there's a link
         active: false,
-        icon: 'stock-management',
-        stats: '3000+ LOC',
+        icon: 'scala-history',
+        stats: 'Git · GitHub · Data Visualization',
       },
       {
-        title: 'Sentiment analysis',
-        url: 'https://github.com/pycoder2000/sentiment-analysis',
+        title: 'Sales Data Engineering in Hadoop',
+        description: 'Data ingestion, transformation & loading using Cloudera Hadoop',
+        url: '', // Add if there's a link
         active: false,
+        icon: 'sales-data-hadoop',
+        stats: 'Cloudera · Hadoop · Hive',
       },
       {
-        title: 'Salary Predictor App',
-        url: 'https://github.com/pycoder2000/Salary',
+        title: 'AI Web Translator',
+        description: 'Flask app that translates text using an AI model',
+        url: '', // Add if there's a link
         active: false,
+        icon: 'ai-translator',
+        stats: 'Flask · ML · Python',
       },
       {
-        title: 'Django Chat',
-        url: 'https://github.com/pycoder2000/djangochat',
+        title: 'My Portfolio Website',
+        description: 'Personal blog developed during university',
+        url: 'sabare.tech', 
         active: false,
-      },
-      {
-        title: 'CLI Quiz',
-        url: 'https://github.com/pycoder2000/CLI-Quiz',
-        active: false,
-      },
-      {
-        title: 'To-Do List',
-        url: 'https://github.com/pycoder2000/Todo-List',
-        active: false,
+        icon: 'personal-blog',
+        stats: 'HTML · CSS · JS',
       },
     ],
   },
-  {
-    year: '2021',
-    projects: [
-      {
-        title: 'Instant MD',
-        description: 'Medical complaint recognition application',
-        url: 'https://github.com/pycoder2000/InstantMD',
-        active: false,
-        icon: 'instant-md',
-        stats: '1st prize',
-      },
-      {
-        title: 'Car Price Predictor',
-        url: 'https://github.com/pycoder2000/Car-Price-Prediction',
-        active: false,
-      },
-    ],
-  },
-  {
-    year: '2020',
-    projects: [
-      {
-        title: 'Xenith Space Shooter',
-        url: 'https://github.com/pycoder2000/Xenith-Space_Shooter',
-        active: false,
-      },
-    ],
-  },
-]
+];
 
-export default items
+export default items;
