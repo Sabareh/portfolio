@@ -3,54 +3,12 @@ const awards = [
     year: '2022',
     award: [
       {
-        title: 'Winner of Economic Times Campus Stars 5.0',
-        url: 'https://drive.google.com/file/d/1UeJiNKbA_c8HcS3iqwBoqnhEAxlkoBsu/view?usp=sharing',
-        date: '2022-08-16',
-        by: 'Economic Times',
+        title: 'Beta Microsoft Learn Student Ambassador',
+        url: 'https://studentambassadors.microsoft.com/certificate/ea777280-46fe-4ddf-8dc8-7a2f21bfdba3',
+        date: 'Apr 2022 - Present · 3 yrs 2 mos',
+        by: 'Microsoft',
         summary:
-          'Winner of ET Campus Star with more than 52000 participants with 4-phase process that evaluates each candidate across 35 assessment parameters.',
-      },
-    ],
-  },
-  {
-    year: '2021',
-    award: [
-      {
-        title: 'Winner at Mined Hackathon',
-        url: 'https://drive.google.com/file/d/1f0LsZf3t8LR2V9QZ1FzfdioQGbf25SkP/view?usp=sharing',
-        date: '2021-02-08',
-        by: 'Binghamton University x Nirma University',
-        summary:
-          'Winner of the HealthCare Track at Mined Hackathon. Mined is a Nationwide Hackathon organized by Nirma University in collaboration with Binghamton University where 629 students participated from over 20 colleges.',
-      },
-      {
-        title: 'Second Place in Inter-University Aptitude Quiz',
-        url: 'https://drive.google.com/file/d/18ZgJZQMJMA3SsfJ24qcwlVItcPzAPo6o/view?usp=sharing',
-        date: '2021-04-16',
-        by: 'Nirma University',
-        summary:
-          'Secured second prize in inter-university aptitude quiz',
-      },
-    ],
-  },
-  {
-    year: '2020',
-    award: [
-      {
-        title: 'Python Scholarship Quiz Winner',
-        url: 'https://drive.google.com/file/d/1vDc31J6MXQ8snhux85dUFdd_omhbTDOV/view?usp=sharing',
-        date: '2020-08-02',
-        by: 'Datalogy',
-        summary:
-          'Secured 1st position in a national scholarship quiz on Python and won free industrial training on Python with leading experts in the field for 3 months.',
-      },
-      {
-        title: 'Selected for Facebook School of Innovation',
-        url: 'https://drive.google.com/file/d/1o7TeqWzMAlQ5luILQVWpAuq73C2Hasut/view?usp=sharing',
-        date: '2020-07-29',
-        by: 'School of Innovation India from Facebook',
-        summary:
-          'Selected for AR Open Program by School of Innovation India from Facebook amongst more than 10000 participants & received industrial training in AR for 6 months.',
+          'Collaborated with a diverse team of fellow ambassadors to promote Microsoft technologies and learning resources within the student community. Organized and executed engaging workshops, webinars, and events to educate peers about the latest Microsoft technologies and tools. Developed and delivered technical content, presentations, and demos on topics such as Azure, Microsoft 365, and Power Platform. Mentored and provided guidance to students interested in pursuing careers in technology, offering insights into industry trends and opportunities. Created and managed social media content to raise awareness about Microsoft Learn initiatives, resulting in increased engagement and participation. Actively contributed to community‑building efforts by fostering connections between students, educators, and industry professionals. Collaborated with Microsoft representatives to facilitate access to exclusive resources and opportunities for fellow students. Represented Microsoft Learn at local and regional conferences, showcasing the benefits of the program and inspiring others to join. Continuously updated skills and knowledge in line with Microsoft technologies, staying current with the latest updates and advancements.',
       },
     ],
   },
