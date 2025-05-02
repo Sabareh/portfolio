@@ -1,0 +1,67 @@
+const items = [
+  {
+    jobTitle: 'Data Engineer',
+    company: 'HFC Kenya',
+    companyUrl: 'https://hfgroup.co.ke/',
+    companyLogo: '/static/images/Company/HFCKenya.png',
+    startDate: '2024-06-01',
+    endDate: '2024-09-30',
+    location: 'Nairobi, Kenya',
+    roleType: 'Full-time',
+    technologies: ['Power Apps', 'Amazon Redshift', 'SOAPUI', 'Power BI', 'AWS'],
+    highlights: ['Deployed 5 Power Apps', 'Participated in AWS Redshift migration'],
+    description: [
+      'Developed and deployed 5 Power Apps, digitizing manual processes in the bank.',
+      'Participated in the migration to a new data warehouse using <b>AWS Redshift</b>.',
+      'Used <b>SOAPUI</b> for regulatory reporting to the Central Bank of Kenya.',
+    ],
+  },
+  {
+    jobTitle: 'Independent Contractor',
+    company: 'Upwork',
+    companyUrl: 'https://www.upwork.com/',
+    companyLogo: '/static/images/Company/Upwork.png',
+    startDate: '2022-03-01',
+    endDate: 'Present',
+    location: 'Remote',
+    roleType: 'Freelance',
+    technologies: [
+      'Power BI',
+      'Power Apps',
+      'Power Pages',
+      'Power Automate',
+      'DAX',
+      'SQL',
+      'M Code',
+      'Vercel',
+    ],
+    highlights: [
+      '100+ SEO articles written',
+      'Rated 4.4/5 for blogging and consulting',
+    ],
+    description: [
+      'Built Microsoft Power Apps, Pages, and Power BI dashboards using <b>PowerFX, Power Automate, DAX</b>, and <b>SQL</b>.',
+      'Authored 100+ SEO-optimized technical articles and landing pages for clients on topics like remote developer hiring.',
+      'Troubleshot Vercel deployment issues and provided technical consulting for client portfolios.',
+      'Published technical blog series on advanced analytics, rated 4.4/5 in client feedback.',
+    ],
+  },
+  {
+    jobTitle: 'Student Ambassador',
+    company: 'Microsoft Learn Student Ambassador Program',
+    companyUrl: 'https://studentambassadors.microsoft.com/',
+    companyLogo: '/static/images/Company/Microsoft.png',
+    startDate: '2022-04-01',
+    endDate: '2025-04-30',
+    location: 'Nairobi, Kenya',
+    roleType: 'Student Leadership',
+    technologies: ['Microsoft Azure', 'Microsoft Teams', 'GitHub'],
+    highlights: ['Led workshops and peer mentoring'],
+    description: [
+      'Organized workshops and webinars introducing Microsoft technologies.',
+      'Mentored students on tech career pathways and Microsoft toolsets.',
+    ],
+  },
+]
+
+export default items
