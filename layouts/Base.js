@@ -4,8 +4,18 @@ import Footer from '../components/Footer'
 import { PostMain, PostContent, PostContainer } from '../components/Post'
 import { Wrapper } from '../components/Wrapper'
 
-export default function Base({ children }) {
-  const { title, tagline, primaryColor, secondaryColor } = children.props
+export default function Base({ children, ...layoutProps }) {
+  // pick up meta from layoutProps if provided, else from page component props
+  const metaSource = Object.keys(layoutProps).length
+    ? layoutProps
+    : (children.props || {})
+
+  const {
+    title,
+    tagline,
+    primaryColor,
+    secondaryColor
+  } = metaSource
 
   return (
     <Wrapper>
@@ -24,13 +34,13 @@ export default function Base({ children }) {
             <GradientTitle
               css={{
                 backgroundImage: `linear-gradient(
-                135deg,
-                $${primaryColor} 0%,
-                $${secondaryColor} 100%
-              );`,
+                  135deg,
+                  $${primaryColor} 0%,
+                  $${secondaryColor} 100%
+                )`,
               }}
             >
-              {tagline ? tagline : title}
+              {tagline || title}
             </GradientTitle>
             {children}
           </PostContainer>
