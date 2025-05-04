@@ -19,7 +19,9 @@ export default function Base({ children, ...layoutProps }) {
 
   return (
     <Wrapper>
-      <Navbar />
+      <NavbarContainer>
+        <Navbar />
+      </NavbarContainer>
       <PostMain
         css={{
           '& ::selection': {
@@ -59,4 +61,14 @@ const GradientTitle = styled('h1', {
   WebkitTextFillColor: 'transparent',
   MozTextFillColor: 'transparent',
   WebkitBoxDecorationBreak: 'clone',
+})
+
+const NavbarContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  width: '100%',
+  maxWidth: '1100px',
+  margin: '0 auto',
+  padding: '0 20px',
 })

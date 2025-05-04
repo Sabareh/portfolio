@@ -17,6 +17,7 @@
     "@stitches/react": "^1.2.6",
     "date-fns": "^2.21.3",
     "framer-motion": "^6.2.3",
+    "fuse.js": "^7.1.0",
     "googleapis": "^95.0.0",
     "gray-matter": "^4.0.3",
     "kbar": "^0.1.0-beta.21",
