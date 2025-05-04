@@ -6,6 +6,9 @@ import CommandBar from '../components/CommandBar'
 import ErrorBoundary from '../components/ErrorBoundary'
 import * as gtag from '../lib/gtag'
 import '../public/static/css/prism.css'
+import { ThemeProvider } from '../context/ThemeContext'
+import { KBarProvider } from 'kbar'
+import '../styles/globals.css'
 
 Router.events.on('routeChangeComplete', url => gtag.pageview(url))
 
@@ -15,32 +18,36 @@ export default function MyApp({ Component, pageProps }) {
   const Layout = Component.Layout || Noop
 
   return (
-    <ErrorBoundary>
-      <CommandBar>
-        {!isMobile && (
-          <AnimatedCursor
-            innerSize={13}
-            outerSize={25}
-            color="255, 255, 255"
-            outerAlpha={0.2}
-            innerScale={1.2}
-            outerScale={1.8}
-            trailingSpeed={4}
-            clickables={[
-              'a',
-              'button',
-              '.link',
-              '.link-button',
-              '.cursor-pointer',
-              '.cursor-text',
-              '[tabindex]',
-            ]}
-          />
-        )}
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </CommandBar>
-    </ErrorBoundary>
+    <ThemeProvider>
+      <KBarProvider>
+        <ErrorBoundary>
+          <CommandBar>
+            {!isMobile && (
+              <AnimatedCursor
+                innerSize={13}
+                outerSize={25}
+                color="255, 255, 255"
+                outerAlpha={0.2}
+                innerScale={1.2}
+                outerScale={1.8}
+                trailingSpeed={4}
+                clickables={[
+                  'a',
+                  'button',
+                  '.link',
+                  '.link-button',
+                  '.cursor-pointer',
+                  '.cursor-text',
+                  '[tabindex]',
+                ]}
+              />
+            )}
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </CommandBar>
+        </ErrorBoundary>
+      </KBarProvider>
+    </ThemeProvider>
   )
 }

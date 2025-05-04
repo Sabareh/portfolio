@@ -2,9 +2,10 @@ import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import { useKBar } from 'kbar'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { isMobile } from 'react-device-detect'
 import { styled } from '../stitches.config'
+import { useTheme } from '../context/ThemeContext'
 
 export default function Navbar() {
   const router = useRouter()
@@ -23,6 +24,8 @@ export default function Navbar() {
   const [hovered, setHovered] = useState('')
   const { query } = useKBar()
   const [menuOpen, setMenuOpen] = useState(false)
+  // Use the theme context instead of local state
+  const { theme, toggleTheme } = useTheme()
 
   return (
     <AnimateSharedLayout>
@@ -73,6 +76,16 @@ export default function Navbar() {
         )}
 
         <Aside>
+          {/* Theme toggle using the context's toggleTheme function */}
+          <ButtonHeader
+            as="button"
+            aria-label="Toggle theme"
+            onClick={toggleTheme}
+            css={{ padding: '0 8px' }}
+          >
+            <Icon className={theme === 'light' ? 'ri-moon-line' : 'ri-sun-line'} />
+          </ButtonHeader>
+
           {isMobile ? (
             <ButtonHeader
               as="button"

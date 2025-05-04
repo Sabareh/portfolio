@@ -1,7 +1,7 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React from 'react'
 import { GA_TRACKING_ID } from '../lib/gtag'
-import { getCssText } from '../stitches.config'
+import { getCssText, darkTheme, lightTheme } from '../stitches.config'
 
 export default class extends Document {
   static async getInitialProps(ctx) {
@@ -15,6 +15,24 @@ export default class extends Document {
     return (
       <Html lang={lang ? lang : 'en-US'}>
         <Head>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function() {
+                  const t = localStorage.getItem('theme') || 'light';
+                  const classDark = '${darkTheme}';
+                  const classLight = '${lightTheme}';
+                  if (t === 'dark') {
+                    document.documentElement.classList.add(classDark);
+                    document.documentElement.classList.remove(classLight);
+                  } else {
+                    document.documentElement.classList.add(classLight);
+                    document.documentElement.classList.remove(classDark);
+                  }
+                })();
+              `,
+            }}
+          />
           <meta charSet="utf-8" />
           <meta content="Victor Sabare" name="author" />
           <meta property="og:type" content="website" />

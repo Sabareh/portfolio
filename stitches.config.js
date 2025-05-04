@@ -49,6 +49,26 @@ export const {
   },
 })
 
+export const darkTheme = createTheme('dark-theme', {
+  colors: {
+    primary: '#f2f2f2',
+    secondary: '#8f9ba8',
+    background: '#08070b', 
+    hover: '#212024',
+    command: 'rgba(255, 255, 255, 0.05)',
+  },
+})
+
+export const lightTheme = createTheme('light-theme', {
+  colors: {
+    primary: '#08070b',
+    secondary: '#4a4a4a',
+    background: '#f2f2f2',
+    hover: '#e0e0e0',
+    command: 'rgba(0, 0, 0, 0.05)',
+  },
+})
+
 const globalStyles = globalCss({
   '*': {
     fontFamily: '$body',
