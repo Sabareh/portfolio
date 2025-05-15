@@ -142,7 +142,7 @@ export default function Navbar() {
                   variants={{
                     hidden: {
                       opacity: 0,
-                      y: -20,
+                      y: 0,
                       transition: { duration: 0.1 },
                     },
                     visible: {
