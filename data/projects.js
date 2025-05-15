@@ -65,7 +65,7 @@ const items = [
       },
       {
         title: 'Stock Prediction with Spark & Cassandra',
-        description: 'This is a data pipeline for predicting stock prices using Apache Spark, Apache Cassandra, and machine learning techniques. It collects and preprocesses stock data from Alpha Vantage API, engineers features, trains models, and performs data analysis and predictions.',
+        description: 'This is a data pipeline for predicting stock prices using Apache Spark, Apache Cassandra, and ml techniques.',
         url: 'https://github.com/Sabareh/stock-price-prediction-spark-cassandra', // Add if there's a link
         active: false,
         icon: 'stock-predictor',
